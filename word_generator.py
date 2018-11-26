@@ -9,16 +9,38 @@ import random
 
 VOWELS = "aeiou"
 CONSONANTS = "bcdfghjklmnpqrstvwxyz"
+SPECIAL = "!@$^&()"
 
-word_format = input("Enter string that consists of #, %, *")
-print(word_format)
-word = ""
+word_string = input("Enter string that consists of #, %, *")
+print(word_string)
 
-for kind in word_format:
-    if kind == "#":
-        word += random.choice(VOWELS)
-    elif kind == "%" or kind == "*":
-        word += random.choice(CONSONANTS)
-    else:
-        word += kind
-print(word)
+
+def is_valid_format(word_format):
+    for char in word_string:
+        if char.isdigit():
+            return False
+        elif char.isspace():
+            return False
+        elif SPECIAL.find(char)>=0:
+            return False
+        else:
+            return True
+
+while is_valid_format(word_string) == True:
+    word = ""
+
+    for kind in word_string:
+        if kind == "#":
+            word += random.choice(VOWELS)
+        elif kind == "%" or kind == "*":
+            word += random.choice(CONSONANTS)
+        else:
+            word += kind
+    print(word)
+
+
+
+
+
+
+
