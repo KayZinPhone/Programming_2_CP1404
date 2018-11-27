@@ -36,18 +36,21 @@ for i in range(MIN_VALUE, MAX_VALUE+1):
 
 MIN_VALUE = int(input("Enter a minimum number: "))
 MAX_VALUE = int(input("Enter a maximum number: "))
-var = int(input("Enter a number between {} and {}: ".format(MIN_VALUE, MAX_VALUE)))
 
 
-def get_number(MIN_VALUE, MAX_VALUE, num):
+def get_number(MIN_VALUE, MAX_VALUE):
     try:
-        while not MIN_VALUE < num < MAX_VALUE:
+        var = int(input("Enter a number between {} and {}: ".format(MIN_VALUE, MAX_VALUE)))
+        while not MIN_VALUE < var < MAX_VALUE:
             print("Please enter a valid number")
-            num = int(input("Enter a number between {} and {}: ".format(MIN_VALUE, MAX_VALUE)))
+            var = int(input("Enter a number between {} and {}: ".format(MIN_VALUE, MAX_VALUE)))
+
     except ValueError:
-        print("Please enter a valid number")
-        num = int(input("Enter a number between {} and {}: ".format(MIN_VALUE, MAX_VALUE)))
+        print("Please enter a valid value")
+        var = int(input("Enter a number between {} and {}: ".format(MIN_VALUE, MAX_VALUE)))
 
-    return num
+    print(var)
 
-print(get_number(MIN_VALUE, MAX_VALUE, var))
+
+
+print(get_number(MIN_VALUE, MAX_VALUE))
